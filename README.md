@@ -1,44 +1,43 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
+## Instruções
 
-## Available Scripts
+1. Faça um fork do repositório na sua conta do GitHub
+2. Crie uma branch, preferencialmente utilizando as práticas do conventional commits
+3. Depois de concluir o desafio, abra um pull-request contra a main (do seu fork) com a descrição do que foi feito, como foi feito e como testar a nova funcionalidade
+4. Receberemos uma notificação quando o pull-request for aberto, faremos a avaliação da solução, e entraremos em contato
 
-In the project directory, you can run:
+## Requisitos
 
-### `yarn start`
+- React
+- TypeScript
+- Componentes funcionais
+- React Router
+- Hooks
+- Redux Toolkit
+- Jest
+- React Testing Library
+- Consumo da seguinte API RESTful: https://rickandmortyapi.com/api/character
+- Listagem dos dados em uma nova rota
+- TDD de todas as novas implementações
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## O que é permitido
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+- SCSS
+- Linters
+- Formatadores
+- Bibliotecas de memoize, como o Reselect
+- Bibliotecas HTTP, como o Axios
+- Utilização de IDEs ou editores de texto de sua preferência, como o VS Code
 
-### `yarn test`
+## O que não é permitido
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Frameworks adicionais, como Bootstrap, Chakra UI, Materialize, etc
+- Bibliotecas que em geral abstraiam os principais conceitos utilizados
+- Reutilização de códigos de outras pessoas
 
-### `yarn build`
+## A feature a ser desenvolvida
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Você precisará implementar um novo reducer na store do Redux, o qual será responsável por armazenar o estado da resposta do GET no endpoint `/character` da API
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+- Crie um seletor memoizado que se retorne o estado armazenado
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Consuma esse estado dentro de um página cuja rota tenha o nome de `/personagens`, e, para cada personagem, exiba seu nome, gênero, status e foto, de acordo com o protótipo do [Figma](https://www.google.com)
