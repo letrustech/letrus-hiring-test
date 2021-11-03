@@ -13,11 +13,14 @@
 - React Router
 - Hooks
 - Redux Toolkit
-- Jest
-- React Testing Library
 - Consumo da seguinte API RESTful: https://rickandmortyapi.com/api/character
 - Listagem dos dados em uma nova rota
-- TDD de todas as novas implementações
+
+## Diferenciais
+
+- Testes (unitários, de integração, E2E)
+- Jest, React Testing Library
+- TDD
 
 ## O que é permitido
 
