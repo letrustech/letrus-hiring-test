@@ -37,6 +37,13 @@
 - Bibliotecas que em geral abstraiam os principais conceitos utilizados
 - Reutilização de códigos de outras pessoas
 
+## Como rodar o projeto
+
+1. Ter o Node.js instalado (versão 14.1.0+)
+2. Criar o fork do projeto
+3. Rodar `npm install`
+4. Rodar `npm start`
+
 ## A feature a ser desenvolvida
 
 - Implemente um novo reducer na store do Redux, o qual será responsável por armazenar o estado da resposta do **GET** no endpoint `/character` da API
