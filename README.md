@@ -36,8 +36,8 @@
 
 ## A feature a ser desenvolvida
 
-- Você precisará implementar um novo reducer na store do Redux, o qual será responsável por armazenar o estado da resposta do GET no endpoint `/character` da API
+- Implemente um novo reducer na store do Redux, o qual será responsável por armazenar o estado da resposta do **GET** no endpoint `/character` da API
 
-- Crie um seletor memoizado que se retorne o estado armazenado
+- Crie um seletor que retorne o estado armazenado
 
-- Consuma esse estado dentro de um página cuja rota tenha o nome de `/personagens`, e, para cada personagem, exiba seu nome, gênero, status e foto, de acordo com o protótipo do [Figma](https://www.google.com)
+- Consuma esse estado dentro de um página cuja rota tenha o nome de `/personagens`, e, para cada personagem, exiba seu nome, gênero, status e foto, de acordo com o protótipo do [Figma](https://www.figma.com/file/OlZtpmS4v7IgTTq93XJpyX/Untitled?node-id=6%3A154)
