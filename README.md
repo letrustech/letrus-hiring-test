@@ -3,7 +3,8 @@
 1. Faça um fork do repositório na sua conta do GitHub
 2. Crie uma branch, preferencialmente utilizando as práticas do conventional commits
 3. Depois de concluir o desafio, abra um pull-request contra a main (do seu fork) com a descrição do que foi feito, como foi feito e como testar a nova funcionalidade
-4. Receberemos uma notificação quando o pull-request for aberto, faremos a avaliação da solução, e entraremos em contato
+4. Mande um e-mail contendo o link do pull-request
+5. Faremos a avaliação da solução e entraremos em contato
 
 ## Requisitos
 
