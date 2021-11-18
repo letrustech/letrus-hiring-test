@@ -41,10 +41,9 @@
     ]
   },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^5.4.0",
+    "@typescript-eslint/eslint-plugin": "^5.4.1-alpha.15",
     "@typescript-eslint/parser": "^5.4.0",
     "cz-conventional-changelog": "3.3.0",
-    "eslint": "^8.2.0",
     "eslint-plugin-react": "^7.27.0"
   },
   "config": {
