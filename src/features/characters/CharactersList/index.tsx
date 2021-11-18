@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
-import { fetchCharacters } from './characterSlice';
-import { useAppDispatch, useAppSelector } from '../../utils/hooks';
+import { fetchCharacters } from '../characterSlice';
+import { useAppDispatch, useAppSelector } from '../../../utils/hooks';
+import './styles.scss';
+import Card from '../../../components/Card';
 
 const CharactersList: React.FC = () => {
     const dispatch = useAppDispatch();
@@ -24,19 +26,16 @@ const CharactersList: React.FC = () => {
     if (status !== 'succeeded') { //[TODO]: style loading
         return (
             <div>
-                <h1>Loading ... - {status}</h1>
+                <h1>Loading ...</h1>
             </div>
         );
     }
 
     return (
-        <div>
-            <h1>{status}</h1>
-            <h2>{characters.results.map((character) => {
-                <>
-                    {console.log(character)}
-                </>;
-            })}</h2>
+        <div className="cards">
+            {characters.results.map((character) =>
+                <Card key={character.id} character={character} />
+            )}
         </div>
     );
 };

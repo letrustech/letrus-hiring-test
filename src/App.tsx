@@ -1,3 +1,4 @@
+import React from 'react';
 import CharactersList from './features/characters/CharactersList';
 
 const App: React.FC = () => {

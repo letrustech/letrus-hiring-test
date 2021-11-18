@@ -1,11 +1,29 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
-interface Character {
+export enum Status {
+    Alive = 'Alive',
+    Dead = 'Dead',
+    Unknown = 'unknown',
+}
+
+export enum Gender {
+    Male = 'Male',
+    Female = 'Female',
+    Unknown = 'unknown',
+}
+
+export enum Species {
+    Human = 'Human',
+    Alien = 'Alien'
+}
+
+export interface Character {
     id: number;
     name: string;
-    gender: string;
-    status: string;
+    gender: Gender;
+    status: Status;
     image: string;
+    species: Species;
     episode: string[];
 }
 
