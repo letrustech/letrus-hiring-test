@@ -1,8 +1,8 @@
+import CharactersList from './features/characters/CharactersList';
+
 const App: React.FC = () => {
   return (
-    <div>
-      <h1>Hello, World!</h1>
-    </div>
+    <CharactersList />
   );
 };
 
