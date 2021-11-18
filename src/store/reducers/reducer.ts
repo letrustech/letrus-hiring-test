@@ -28,7 +28,7 @@ interface StateRickAndMorty {
 
 const initialState: StateRickAndMorty = {
   characters: [],
-  loading: false,
+  loading: true,
 };
 
 export const rickAndMortySlice = createSlice({
