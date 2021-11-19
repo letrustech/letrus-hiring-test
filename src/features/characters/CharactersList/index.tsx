@@ -23,19 +23,17 @@ const CharactersList: React.FC = () => {
         );
     }
 
-    if (status !== 'succeeded') { //[TODO]: style loading
+    if (status !== 'succeeded') {
         return (
-            <div>
-                <h1>Loading ...</h1>
-            </div>
+            <div className="loader" data-testId="loading" ></div>
         );
     }
 
     return (
         <div className="cards">
-            {characters.results.map((character) =>
+            {characters.results.length !== 0 ? characters.results.map((character) =>
                 <Card key={character.id} character={character} />
-            )}
+            ) : <>Nenhum personagem encontrado.</>}
         </div>
     );
 };

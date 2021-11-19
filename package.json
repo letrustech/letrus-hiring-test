@@ -6,7 +6,7 @@
   "dependencies": {
     "@reduxjs/toolkit": "^1.5.1",
     "@testing-library/jest-dom": "^5.15.0",
-    "@testing-library/react": "^9.3.2",
+    "@testing-library/react": "12.1.2",
     "@testing-library/user-event": "^7.1.2",
     "@types/jest": "^24.0.0",
     "@types/node": "^12.0.0",
@@ -14,6 +14,7 @@
     "@types/react-dom": "^16.9.0",
     "@types/react-redux": "^7.1.7",
     "@types/react-router-dom": "^5.3.2",
+    "cypress": "^9.0.0",
     "history": "5",
     "node-sass": "^6.0.1",
     "react": "^17.0.2",
@@ -23,12 +24,12 @@
     "react-scripts": "4.0.3"
   },
   "scripts": {
-    "start": "react-scripts --openssl-legacy-provider start",
+    "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx  --ignore-pattern build --ignore-pattern coverage",
-    "lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx  --ignore-pattern build --ignore-pattern coverage --fix"
+    "lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx  --ignore-pattern build --ignore-pattern coverage --fix",
+    "cypress:open": "cypress open"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -46,6 +47,9 @@
     ]
   },
   "devDependencies": {
+    "@babel/core": "^7.16.0",
+    "@babel/preset-env": "^7.16.4",
+    "@babel/preset-typescript": "^7.16.0",
     "@typescript-eslint/eslint-plugin": "^5.4.0",
     "@typescript-eslint/parser": "^5.4.0",
     "typescript": "^4.4.4"

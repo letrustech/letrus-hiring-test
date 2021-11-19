@@ -2,6 +2,7 @@ import React from 'react';
 import { Character } from '../../features/characters/characterSlice';
 import './style.scss';
 import StatusBadge from '../StatusBadge';
+import EpisodeLabel from '../EpisodeLabel';
 
 interface CardProps {
     character: Character;
@@ -15,6 +16,7 @@ const Card: React.FC<CardProps> = ({ character }) => {
         backgroundRepeat: 'no-repeat',
     };
 
+    // used to catch only the first 5 episodes (or less)
     const slicedEpisodes = character.episode.slice(0, 5);
 
     return (
@@ -22,7 +24,7 @@ const Card: React.FC<CardProps> = ({ character }) => {
             <div className="headerContainer">
                 <div className="header">
                     <div className="h1">{character.name}</div>
-                    <div className="capitalized">{character.gender}</div>
+                    <div className="capitalized p2">{character.gender}</div>
                 </div>
                 <div>
                     <div className="status">
@@ -33,7 +35,7 @@ const Card: React.FC<CardProps> = ({ character }) => {
             </div>
             <div className="episodes">
                 <div className="h2">First 5 appearances:</div>
-                {slicedEpisodes.map((episode) => <label>{episode}</label>)}
+                {slicedEpisodes.map((episode) => <EpisodeLabel episodeUrl={episode} />)}
             </div>
         </div>
     );
