@@ -69,6 +69,21 @@ describe('2 -Rick and Morty Application', () => {
       expect(screen.getByTestId('card-status').textContent).toBe('Alive');
     });
 
+    it('Should have the species of Character', async () => {
+      jest.spyOn(global, "fetch").mockImplementation(() =>
+        Promise.resolve({
+          json: () => Promise.resolve(mockResult),
+        })
+      );
+      render(
+        <Provider store={store}>
+          <App />
+        </Provider>
+      );
+      await waitForElementToBeRemoved(() => screen.getByText('Carregando'));
+      expect(screen.getByTestId('card-species').textContent).toBe('Human');
+    });
+
     it('Should have the gender of Character', async () => {
       jest.spyOn(global, "fetch").mockImplementation(() =>
         Promise.resolve({
@@ -111,11 +126,7 @@ describe('2 -Rick and Morty Application', () => {
         </Provider>
       );
       await waitForElementToBeRemoved(() => screen.getByText('Carregando'));
-      expect(screen.getByTestId('1-appearance').textContent).toBe('Episode 01: Pilot (December 2, 2013)');
-      expect(screen.getByTestId('2-appearance').textContent).toBe('Episode 02: Lawnmower Dog (December 9, 2013)');
-      expect(screen.getByTestId('3-appearance').textContent).toBe('Episode 03: Anatomy Park (December 16, 2013)');
-      expect(screen.getByTestId('4-appearance').textContent).toBe('Episode 04: M. Night Shaym-Aliens! (January 13, 2014)');
-      expect(screen.getByTestId('5-appearance').textContent).toBe('Episode 05: Meeseeks and Destroy (January 20, 2014)');
+      expect(screen.getByTestId('card-appearances')).toBeInTheDocument();
     });
   })
 });
