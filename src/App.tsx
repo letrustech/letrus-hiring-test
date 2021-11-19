@@ -1,20 +1,15 @@
-import React, { useEffect } from "react";
-import { fetchCharacters, rickAndMortySelector } from "./store/reducers/reducer";
-import { useAppDispatch, useAppSelector } from "./utils/hooks";
+import React from "react";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { Redirect } from "react-router";
+import Characters from "./pages/Characters";
 
-const App: React.FC = () => {
-  const dispatch = useAppDispatch();
-  const rickAndMortyState = useAppSelector(rickAndMortySelector);
-
-  useEffect(() => {
-    dispatch(fetchCharacters())
-  }, [])
-
-  return (
-    <div>
-      <h1>{ rickAndMortyState.loading ? 'Carregando' : `${rickAndMortyState.characters[0].name }`}</h1>
-    </div>
-  );
-};
+const App: React.FC = () => (
+  <BrowserRouter>
+    <Switch>
+      <Route path="/" component={Characters} />
+    </Switch>
+    <Redirect to="/personagens" />
+  </BrowserRouter>
+);
 
 export default App;

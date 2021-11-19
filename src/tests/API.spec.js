@@ -1,10 +1,3 @@
-import {
-  screen,
-  render,
-  waitForElementToBeRemoved,
-} from "@testing-library/react";
-import { Provider } from "react-redux";
-import App from "../App";
 import { fetchCharacters } from "../store/reducers/reducer";
 import { store } from "../utils/store";
 import { mockResult } from "./mock";
