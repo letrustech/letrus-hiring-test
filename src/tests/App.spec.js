@@ -1,11 +1,22 @@
-import { render, screen, waitForElementToBeRemoved } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { Provider } from "react-redux";
 import App from "../App";
 import { store } from "../utils/store";
-import { mockResult, mockResult2 } from "./mock";
+import { mockResult } from "./mock";
 
 describe('2 -Rick and Morty Application', () => {
   afterEach(() => jest.clearAllMocks())
+  beforeEach(() => {
+    // Reference : https://stackoverflow.com/questions/44249985/js-testing-code-that-uses-an-intersectionobserver
+    // IntersectionObserver isn't available in test environment
+    const mockIntersectionObserver = jest.fn();
+    mockIntersectionObserver.mockReturnValue({
+      observe: () => null,
+      unobserve: () => null,
+      disconnect: () => null
+    });
+    window.IntersectionObserver = mockIntersectionObserver;
+  });
 
   describe('Route', () => {
     it('The route when page renderize should be "/personagens"', () => {
@@ -21,25 +32,7 @@ describe('2 -Rick and Morty Application', () => {
       );
       expect(window.location.pathname).toBe('/personagens');
     });
-  })
-
-  describe('Application', () => {
-    it('Should show all cards after fetch the API', async () => {
-      jest.spyOn(global, "fetch").mockImplementation(() =>
-        Promise.resolve({
-          json: () => Promise.resolve(mockResult2),
-        })
-      );
-      render(
-        <Provider store={store}>
-          <App />
-        </Provider>
-      );
-      await waitForElementToBeRemoved(() => screen.getByText('Carregando'));
-      expect(fetch).toHaveBeenCalled();
-      expect(screen.getAllByTestId('card')).toHaveLength(4);
-    });
-  })
+  });
 
   describe('Card Character Information', () => {
     it('Should have the name of Character', async () => {
@@ -53,7 +46,6 @@ describe('2 -Rick and Morty Application', () => {
           <App />
         </Provider>
       );
-      await waitForElementToBeRemoved(() => screen.getByText('Carregando'));
       expect(screen.getAllByTestId('card-name')[0].textContent).toBe('Rick Sanchez');
     });
 
@@ -68,7 +60,6 @@ describe('2 -Rick and Morty Application', () => {
           <App />
         </Provider>
       );
-      await waitForElementToBeRemoved(() => screen.getByText('Carregando'));
       expect(screen.getAllByTestId('card-status')[0]).toBeInTheDocument();
     });
 
@@ -83,7 +74,6 @@ describe('2 -Rick and Morty Application', () => {
           <App />
         </Provider>
       );
-      await waitForElementToBeRemoved(() => screen.getByText('Carregando'));
       expect(screen.getAllByTestId('card-species')[0].textContent).toBe('Human');
     });
 
@@ -98,7 +88,6 @@ describe('2 -Rick and Morty Application', () => {
           <App />
         </Provider>
       );
-      await waitForElementToBeRemoved(() => screen.getByText('Carregando'));
       expect(screen.getAllByTestId('card-gender')[0].textContent).toBe('Male');
     });
 
@@ -113,7 +102,6 @@ describe('2 -Rick and Morty Application', () => {
           <App />
         </Provider>
       );
-      await waitForElementToBeRemoved(() => screen.getByText('Carregando'));
       expect(screen.getAllByText('First 5 appearances:')[0]).toBeInTheDocument();
     })
 
@@ -128,7 +116,6 @@ describe('2 -Rick and Morty Application', () => {
           <App />
         </Provider>
       );
-      await waitForElementToBeRemoved(() => screen.getByText('Carregando'));
       expect(screen.getAllByTestId('card-appearances')[0]).toBeInTheDocument();
     });
   })
