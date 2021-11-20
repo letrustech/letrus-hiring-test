@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { AppDispatch, AppThunk, RootState } from '../../utils/store';
 
-interface Character {
+export interface Character {
     id: string,
     name: string,
     status: string,

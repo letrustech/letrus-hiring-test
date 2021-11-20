@@ -1,9 +1,9 @@
 import React from "react";
-import CardsCharacters from "../components/CardsCharacters"
+import CardsContainer from "../components/organisms/CardsContainer";
 
 const Characters: React.FC = () => (
   <main>
-    <CardsCharacters />
+    <CardsContainer />
   </main>
 );
 

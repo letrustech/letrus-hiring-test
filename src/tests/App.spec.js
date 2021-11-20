@@ -2,7 +2,7 @@ import { render, screen, waitForElementToBeRemoved } from "@testing-library/reac
 import { Provider } from "react-redux";
 import App from "../App";
 import { store } from "../utils/store";
-import { mockResult } from "./mock";
+import { mockResult, mockResult2 } from "./mock";
 
 describe('2 -Rick and Morty Application', () => {
   afterEach(() => jest.clearAllMocks())
@@ -23,6 +23,24 @@ describe('2 -Rick and Morty Application', () => {
     });
   })
 
+  describe('Application', () => {
+    it('Should show all cards after fetch the API', async () => {
+      jest.spyOn(global, "fetch").mockImplementation(() =>
+        Promise.resolve({
+          json: () => Promise.resolve(mockResult2),
+        })
+      );
+      render(
+        <Provider store={store}>
+          <App />
+        </Provider>
+      );
+      await waitForElementToBeRemoved(() => screen.getByText('Carregando'));
+      expect(fetch).toHaveBeenCalled();
+      expect(screen.getAllByTestId('card')).toHaveLength(3);
+    });
+  })
+
   describe('Card Character Information', () => {
     it('Should have the name of Character', async () => {
       jest.spyOn(global, "fetch").mockImplementation(() =>
@@ -39,21 +57,6 @@ describe('2 -Rick and Morty Application', () => {
       expect(screen.getByTestId('card-name').textContent).toBe('Rick Sanchez');
     });
 
-    it('Should have the image of Character', async () => {
-      jest.spyOn(global, "fetch").mockImplementation(() =>
-        Promise.resolve({
-          json: () => Promise.resolve(mockResult),
-        })
-      );
-      render(
-        <Provider store={store}>
-          <App />
-        </Provider>
-      );
-      await waitForElementToBeRemoved(() => screen.getByText('Carregando'));
-      expect(screen.getByTestId('card-image').src).toBe('https://rickandmortyapi.com/api/character/avatar/1.jpeg');
-    });
-
     it('Should have the status of Character', async () => {
       jest.spyOn(global, "fetch").mockImplementation(() =>
         Promise.resolve({
@@ -66,7 +69,7 @@ describe('2 -Rick and Morty Application', () => {
         </Provider>
       );
       await waitForElementToBeRemoved(() => screen.getByText('Carregando'));
-      expect(screen.getByTestId('card-status').textContent).toBe('Alive');
+      expect(screen.getByTestId('card-status')).toBeInTheDocument();
     });
 
     it('Should have the species of Character', async () => {

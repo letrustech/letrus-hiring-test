@@ -1,0 +1,89 @@
+section{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card{
+  margin: 0.5rem;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 8px;
+  width: 460px;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1rem;
+  box-shadow: 2px 5px 7px rgba(0, 0, 0, 0.4);
+
+  .header{
+    display: flex;
+    justify-content: space-between;
+    
+    .title-container{
+      display: flex;
+      flex-direction: column;
+
+      .title{
+        font-size: 40px;
+        font-weight: bold;
+        color: #8C65BD;
+      }
+
+      .gender{
+        font-size: 17px;
+        color: white;
+      }
+    }
+
+    .info-container{
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+
+      .status-alive{
+        background-color: #1CBC0E;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+      }
+      
+      .status-dead{
+        background-color: #BC190E;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+      }
+
+      .specie{
+        font-size: 18px;
+        color: white;
+      }
+    }
+
+  }
+
+  .main{
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+
+    .appearance-title{
+      font-size: 18px;
+      color: #8C65BD;
+    }
+
+    .appearance-container{
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+
+      p{
+        font-size: 15px;
+        color: white;
+      }
+    }
+  }
+
+}
