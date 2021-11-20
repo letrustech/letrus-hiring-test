@@ -21,7 +21,7 @@ const CardsContainer: React.FC = () => {
 
   useEffect(() => {
     if (inView) {
-      setPageAPI((prevPage) => prevPage + 1);
+      pageAPI < 42 && setPageAPI((prevPage) => prevPage + 1);
     }
   }, [inView]);
 
