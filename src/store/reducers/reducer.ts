@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { AppDispatch, AppThunk, RootState } from '../../utils/store';
+import { AppDispatch, AppThunk, RootState, store } from '../../utils/store';
 
 export interface Character {
     id: string,
@@ -39,7 +39,7 @@ export const rickAndMortySlice = createSlice({
       state.loading = true;
     },
     receiveCharacters: (state, action: PayloadAction<Array<Character>>) => {
-      state.characters = action.payload;
+      state.characters = [...state.characters, ...action.payload];
       state.loading = false;
     },
   },
@@ -50,7 +50,7 @@ export default rickAndMortySlice.reducer;
 export const { requestCharacters, receiveCharacters } = rickAndMortySlice.actions;
 export const rickAndMortySelector = (state: RootState) => state.rickAndMorty;
 
-export const fetchCharacters = (page: number = 1): AppThunk => async (dispatch: AppDispatch) => {
+export const fetchCharacters = (page: number): AppThunk => async (dispatch: AppDispatch) => {
   dispatch(requestCharacters());
   const response = await fetch(`https://rickandmortyapi.com/api/character?page=${page}`);
   const data = await response.json();

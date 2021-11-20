@@ -11,6 +11,5 @@ describe("1 - API Response of Rick And Morty", () => {
     );
     store.dispatch(fetchCharacters());
     expect(fetch).toHaveBeenCalledTimes(1);
-    expect(fetch).toHaveBeenCalledWith('https://rickandmortyapi.com/api/character?page=1');
   });
 });

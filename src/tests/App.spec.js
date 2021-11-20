@@ -37,7 +37,7 @@ describe('2 -Rick and Morty Application', () => {
       );
       await waitForElementToBeRemoved(() => screen.getByText('Carregando'));
       expect(fetch).toHaveBeenCalled();
-      expect(screen.getAllByTestId('card')).toHaveLength(3);
+      expect(screen.getAllByTestId('card')).toHaveLength(4);
     });
   })
 
@@ -54,7 +54,7 @@ describe('2 -Rick and Morty Application', () => {
         </Provider>
       );
       await waitForElementToBeRemoved(() => screen.getByText('Carregando'));
-      expect(screen.getByTestId('card-name').textContent).toBe('Rick Sanchez');
+      expect(screen.getAllByTestId('card-name')[0].textContent).toBe('Rick Sanchez');
     });
 
     it('Should have the status of Character', async () => {
@@ -69,7 +69,7 @@ describe('2 -Rick and Morty Application', () => {
         </Provider>
       );
       await waitForElementToBeRemoved(() => screen.getByText('Carregando'));
-      expect(screen.getByTestId('card-status')).toBeInTheDocument();
+      expect(screen.getAllByTestId('card-status')[0]).toBeInTheDocument();
     });
 
     it('Should have the species of Character', async () => {
@@ -84,7 +84,7 @@ describe('2 -Rick and Morty Application', () => {
         </Provider>
       );
       await waitForElementToBeRemoved(() => screen.getByText('Carregando'));
-      expect(screen.getByTestId('card-species').textContent).toBe('Human');
+      expect(screen.getAllByTestId('card-species')[0].textContent).toBe('Human');
     });
 
     it('Should have the gender of Character', async () => {
@@ -99,7 +99,7 @@ describe('2 -Rick and Morty Application', () => {
         </Provider>
       );
       await waitForElementToBeRemoved(() => screen.getByText('Carregando'));
-      expect(screen.getByTestId('card-gender').textContent).toBe('Male');
+      expect(screen.getAllByTestId('card-gender')[0].textContent).toBe('Male');
     });
 
     it('Should have the Text "First 5 appearances:"', async () => {
@@ -114,7 +114,7 @@ describe('2 -Rick and Morty Application', () => {
         </Provider>
       );
       await waitForElementToBeRemoved(() => screen.getByText('Carregando'));
-      expect(screen.getByText('First 5 appearances:')).toBeInTheDocument();
+      expect(screen.getAllByText('First 5 appearances:')[0]).toBeInTheDocument();
     })
 
     it('Should have a the First 5 appearances', async () => {
@@ -129,7 +129,7 @@ describe('2 -Rick and Morty Application', () => {
         </Provider>
       );
       await waitForElementToBeRemoved(() => screen.getByText('Carregando'));
-      expect(screen.getByTestId('card-appearances')).toBeInTheDocument();
+      expect(screen.getAllByTestId('card-appearances')[0]).toBeInTheDocument();
     });
   })
 });

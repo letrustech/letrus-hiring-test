@@ -12,8 +12,9 @@ const CardsContainer: React.FC = () => {
   const { characters, loading } = useAppSelector(rickAndMortySelector);
 
   useEffect(() => {
-    dispatch(fetchCharacters());
+    dispatch(fetchCharacters(1));
   }, []);
+
 
   if (loading) return <Loading />;
 
