@@ -7,7 +7,7 @@ import Characters from "./pages/Characters";
 const App: React.FC = () => (
   <BrowserRouter>
     <Switch>
-      <Route path="/" component={Characters} />
+      <Route path="/personagens" component={Characters} />
     </Switch>
     <Redirect to="/personagens" />
   </BrowserRouter>
