@@ -1,9 +1,16 @@
-import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
-import RickAndMortyService from "../../services/rick-and-morty-Service";
+import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit'
+import RickAndMortyService from '../../services/rick-and-morty-Service'
 
 interface Location {
   name: string,
   url: string
+}
+export interface EpisodeInterface {
+  id: number,
+  name: string,
+  air_date: string,
+  episode: string,
+  characters: string[]
 }
 
 export interface Character {
@@ -21,48 +28,49 @@ export interface Character {
   created: string
 }
 
+export type statusType = 'idle' | 'loading' | 'failed'
+
 export interface Characters {
   list: Character[],
-  status: 'idle' | 'loading' | 'failed'
+  status: statusType
 }
 const initialState: Characters = {
-  list: [],
-  status:'idle'
+	list: [],
+	status:'idle'
 }
 
 //criar characters service
 export const fetchCharacters = createAsyncThunk(
-  'characters/fetchCharacters',
-  async(): Promise<Character[]> => {
-    const response = await RickAndMortyService.getCharacters
-    return response
-  }
+	'characters/fetchCharacters',
+	async(): Promise<Character[]> => {
+		const response = await RickAndMortyService.getCharacters
+		return response
+	}
 )
 
-
 export const charactersSlice = createSlice({
-  name: 'characters',
-  initialState,
-  reducers:{
-    addCharacter: (state,action: PayloadAction<Character>) => {
-      state.list.push(action.payload)
-    }
-  },
-  extraReducers: (builder) => {
-    builder
-      .addCase(fetchCharacters.pending, state => {
-      state.status = 'loading'
-      })
-      .addCase(fetchCharacters.fulfilled, (state, action) => {
-        state.status = 'idle'
-        state.list = action.payload
-      })
-      .addCase(fetchCharacters.rejected, state => {
-        state.status = 'failed'
-      })
-  }
+	name: 'characters',
+	initialState,
+	reducers:{
+		addCharacter: (state,action: PayloadAction<Character>) => {
+			state.list.push(action.payload)
+		}
+	},
+	extraReducers: (builder) => {
+		builder
+			.addCase(fetchCharacters.pending, state => {
+				state.status = 'loading'
+			})
+			.addCase(fetchCharacters.fulfilled, (state, action) => {
+				state.status = 'idle'
+				state.list = action.payload
+			})
+			.addCase(fetchCharacters.rejected, state => {
+				state.status = 'failed'
+			})
+	}
 })
 
 export const { addCharacter } = charactersSlice.actions
 
-export default charactersSlice.reducer;
+export default charactersSlice.reducer

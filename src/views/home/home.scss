@@ -1,0 +1,29 @@
+@import '../../sass/mixins.scss';
+@import '../../sass/variables.scss';
+
+.home {
+  @include flex(column);
+  height: 100vh;
+
+  &__title {
+    color: $text-primary;
+    font-size: 2rem;
+    font-family: $font-family;
+    font-weight: bold;
+    width: 100%;
+    text-align: center;
+  }
+
+  &__link {
+    background-color: $text-primary;
+    box-sizing: border-box;
+    border-radius: 2rem;
+    color:$text-secondary;
+    font-family: $font-family;
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+    margin: 1rem;
+    padding: 1rem 1.5rem;
+    text-decoration: none;
+  }
+}

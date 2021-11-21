@@ -1,0 +1,17 @@
+@import '../../sass/mixins.scss';
+
+.card-list{
+  align-items: center;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-gap: 0.5rem;
+
+  @include tablet {
+    grid-template-columns: 50% 50%;
+
+  }
+
+  @include desktop {
+    grid-template-columns: 33% 33% 33%;
+  }
+}

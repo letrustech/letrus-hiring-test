@@ -1,0 +1,34 @@
+@import '../../sass/_mixins.scss';
+@import '../../sass/_variables.scss';
+
+.species {
+  color: $text-secondary;
+  font-family: $font-family;
+  font-size: 1.2rem;
+
+  &--wrapper {
+    box-sizing: border-box;
+    @include flex(row,center,center);
+  }
+
+  &__status {
+    box-sizing: border-box;
+    border-radius: 100%;
+    display: block;
+    height:0.5rem;
+    margin-right: 0.5rem;
+    width: 0.5rem;
+
+    &[data-status = Alive] {
+      background-color: $green;
+    }
+
+    &[data-status = Dead] {
+      background-color: $red;
+    }
+
+    &[data-status = unknown] {
+      background-color: $gray;
+    }
+  }
+}

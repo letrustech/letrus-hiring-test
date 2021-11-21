@@ -1,0 +1,20 @@
+@import './sass';
+
+.App {
+  box-sizing: border-box;
+  padding: 0.5rem;
+  width: 100%;
+}
+html{
+  font-size: 12px;
+
+  @include tablet {
+    font-size: 14px;
+  }
+  @include desktop {
+    font-size: 14px;
+  }
+  @include desktop-fullHD {
+    font-size: 16px;
+  }
+}
