@@ -29,15 +29,16 @@ export const CharacterDataContent = styled.div`
       padding: 0 10px;
     }
     .background-content__character-data__title {
-      display: flex;
-      flex-direction: column;
+      height: 100%;
       .background-content__character-data__title__gender {
         margin-bottom: 0;
+        margin-top: 0;
       }
     }
     .background-content__character-data__title__species {
       display: flex;
       align-items: center;
+      margin-top: -10px;
     }
     .background-content__character-data__title__species__status {
       width: 10px;
@@ -48,7 +49,12 @@ export const CharacterDataContent = styled.div`
     .background-content__character-data__title-top {
       display: flex;
       justify-content: space-between;
-      height: 45px;
+      align-items: flex-start;
+    }
+    .background-content__character-data__title-top__name {
+      h1 {
+        margin-bottom: 0;
+      }
     }
     .background-content__character-data__body {
       margin: 0;
@@ -63,23 +69,5 @@ export const CharacterDataContent = styled.div`
       margin-bottom: 5px;
       font-size: ${theme.font.sizes.xsmall};
     }
-    /* .type-content {
-      display: flex;
-      margin-bottom: 10px;
-    } */
-    /* .type {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-right: 10px;
-      margin-bottom: 10px;
-      padding: 5px;
-      width: 110px;
-      height: 30px;
-      p {
-        font-size: ${theme.font.sizes.xsmall};
-        font-weight: bold;
-      }
-    } */
   `};
 `;

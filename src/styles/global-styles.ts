@@ -80,11 +80,12 @@ export const GlobalStyles = createGlobalStyle<Theme>`
   select {
       font-size: 1.25em;
       width: 170px;
-      height: 38px;
+      height: 51px;
       border-radius: 5px;
       padding: 5px 10px;
       background-color: white;
       margin-right: 15px;
+      font-size: ${({ theme }) => theme.font.sizes.medium};
   }
   .pressable {
     cursor: pointer;

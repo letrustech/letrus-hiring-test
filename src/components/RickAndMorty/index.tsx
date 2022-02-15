@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { EpisodeDataType, RickAndMortyDataType } from '../../data/interfaces';
 import { getEpisodes } from '../../services';
 import * as Styled from './styles';
@@ -8,6 +8,8 @@ export type RickAndMortyProps = {
 };
 
 export const RickAndMorty = ({ character }: RickAndMortyProps) => {
+  const isMounted = useRef(true);
+
   const [episodes, setEpisodes] = useState<EpisodeDataType[]>([]);
 
   const loadEpisodes = useCallback(async (characterEpisodes: string[]) => {
@@ -15,8 +17,14 @@ export const RickAndMorty = ({ character }: RickAndMortyProps) => {
     setEpisodes(episodesParsed);
   }, []);
   useEffect(() => {
-    loadEpisodes(character.episode);
-  });
+    if (isMounted.current) {
+      loadEpisodes(character.episode);
+    }
+
+    return () => {
+      isMounted.current = false;
+    };
+  }, [loadEpisodes, character.episode]);
 
   return (
     <Styled.CharacterContainer>
@@ -29,7 +37,9 @@ export const RickAndMorty = ({ character }: RickAndMortyProps) => {
           <div className="background-content__character-data">
             <div className="background-content__character-data__title">
               <div className="background-content__character-data__title-top">
-                <h1>{character.name}</h1>
+                <div className="background-content__character-data__title-top__name">
+                  <h1>{character.name}</h1>
+                </div>
                 <div className="background-content__character-data__title__species">
                   <div
                     className="background-content__character-data__title__species__status"
@@ -42,9 +52,11 @@ export const RickAndMorty = ({ character }: RickAndMortyProps) => {
                   <p>{character.species}</p>
                 </div>
               </div>
-              <p className="background-content__character-data__title__gender">
-                {character.gender}
-              </p>
+              <div>
+                <p className="background-content__character-data__title__gender">
+                  {character.gender}
+                </p>
+              </div>
             </div>
             <div className="background-content__character-data__body">
               <h3>First 5 appearances:</h3>
