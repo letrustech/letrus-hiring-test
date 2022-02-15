@@ -1,9 +1,7 @@
+import { ListCharacteres } from './components/ListCharacteres';
+
 const App: React.FC = () => {
-  return (
-    <div>
-      <h1>Hello, World!</h1>
-    </div>
-  );
+  return <ListCharacteres />;
 };
 
 export default App;
