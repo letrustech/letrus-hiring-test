@@ -5,7 +5,10 @@ import { useState } from 'react';
 import { loadCharacteres } from '../../store/reducers/reducer';
 import { Cards } from '../Cards';
 import { RickAndMortyDataType } from '../../data/interfaces';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
+
+import { BiArrowBack } from 'react-icons/bi';
+import { env } from '../../environments';
 
 export function ListCharacteres() {
   const state = useAppSelector(store.getState);
@@ -32,6 +35,12 @@ export function ListCharacteres() {
   });
   return (
     <Styled.Container>
+      <Link to={env.ROUTER_UTILS.base.home} title="Back to search">
+        <a>
+          <BiArrowBack size={52} />
+        </a>
+      </Link>
+
       {dataFiltered && dataFiltered.length > 0 ? (
         <Cards characteres={dataFiltered} />
       ) : (

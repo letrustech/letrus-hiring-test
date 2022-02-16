@@ -43,6 +43,8 @@ export const GlobalStyles = createGlobalStyle<Theme>`
     align-items: center;
     transition: all, 0.3s;
     text-decoration: none;
+    margin: 10px;
+
   }
   a:hover {
     color: ${({ theme }) => theme.colors.secondaryColor};
