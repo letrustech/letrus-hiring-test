@@ -1,15 +1,22 @@
 main {
+  @media (max-width: 720px) {
+    width: 90%;
+  }
   .container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(482px, 1fr));
-    .card {
-      width: 482px;
-      height: 317px;
-      position: relative;
-      background: #000000;
+    grid-template-columns: repeat(auto-fit, minmax(449px, 1fr));
 
-      & > img {
-        position: absolute;
+    @media (max-width: 720px) {
+      grid-template-columns: 1fr;
+    }
+
+    .card {
+      background-image: url('../../assets/images/personagem.png');
+      max-width: 449px;
+      height: 317px;
+
+      @media (max-width: 720px) {
+        width: 100%;
       }
     }
 
@@ -18,23 +25,87 @@ main {
       z-index: 2;
       width: 100%;
       height: 100%;
-    
+
       opacity: 0.6;
-    
+
       background: #000000;
-    
+
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
     }
   }
-   
 }
 
 .description {
+  padding: 1.188rem;
   header {
     display: flex;
-    justify-self: flex-end;
+    justify-content: flex-end;
+    align-items: center;
+
+    div {
+      margin-right: 0.375rem;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--status-green);
+    }
+
+    strong {
+      font-family: 'Roboto';
+      font-weight: 400;
+      font-size: 1.125rem;
+      line-height: 21px;
+
+      color: #ffffff;
+    }
+  }
+
+  section {
+    margin-bottom: 2.563rem;
+    h1 {
+      font-family: 'Roboto';
+      font-weight: 700;
+      font-size: 2.5rem;
+      line-height: 2.938rem;
+
+      color: var(--text-title);
+    }
+
+    span {
+      font-family: 'Roboto';
+      font-weight: 400;
+      font-size: 0.875rem;
+      line-height: 1rem;
+
+      color: var(--white);
+    }
+  }
+
+  footer {
+    h2 {
+      margin-bottom: 0.563rem;
+      font-family: 'Roboto';
+      font-weight: 700;
+      font-size: 1.125rem;
+      line-height: 1.313rem;
+
+      color: var(--text-title);
+    }
+
+    ul {
+      li {
+        list-style: none;
+        margin-bottom: 0.375rem;
+        font-family: 'Roboto';
+        font-weight: 400;
+        font-size: 0.875rem;
+        line-height: 1rem;
+
+        color: var(--white);
+      }
+    }
   }
 }

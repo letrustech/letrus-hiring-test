@@ -5,4 +5,8 @@
   justify-content: center;
   gap: 16px;
   flex-wrap: wrap;
+
+  @media (max-width: 720px) {
+    margin-bottom: 20px;
+  }
 }

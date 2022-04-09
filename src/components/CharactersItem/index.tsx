@@ -1,15 +1,16 @@
 import React from 'react';
+
 import './styles.scss';
+
 const CharactersItem: React.FC = () => {
   return (
     <main>
-      <div className='container'>
-        <div className='card'>
-          <img src="/assets/images/personagem.png" alt="Imagem do Personagem" />
-          <div className='mask'></div>
-          <div className='description'>
+      <div className="container">
+        <div className="card">
+          {/* <div className="mask"></div> */}
+          <div className="description">
             <header>
-              <div>status</div>
+              <div></div>
               <strong>Human</strong>
             </header>
             <section>
@@ -18,11 +19,13 @@ const CharactersItem: React.FC = () => {
             </section>
             <footer>
               <h2>First 5 appearances:</h2>
-              <p>Episode 01: Pilot (December 2, 2013)</p>
-              <p>Episode 01: Pilot (December 2, 2013)</p>
-              <p>Episode 01: Pilot (December 2, 2013)</p>
-              <p>Episode 01: Pilot (December 2, 2013)</p>
-              <p>Episode 01: Pilot (December 2, 2013)</p>
+              <ul>
+                <li>Episode 01: Pilot (December 2, 2013)</li>
+                <li>Episode 01: Pilot (December 2, 2013)</li>
+                <li>Episode 01: Pilot (December 2, 2013)</li>
+                <li>Episode 01: Pilot (December 2, 2013)</li>
+                <li>Episode 01: Pilot (December 2, 2013)</li>
+              </ul>
             </footer>
           </div>
         </div>

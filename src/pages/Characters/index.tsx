@@ -12,8 +12,6 @@ const Characters: React.FC = () => {
       <CharactersItem />
       <CharactersItem />
       <CharactersItem />
-
-      <h1>Oiiiiiiii</h1>
     </div>
   );
 };
