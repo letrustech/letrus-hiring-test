@@ -1,8 +1,9 @@
 import React from 'react';
+import RoutesPage from './routes';
 
 const App: React.FC = () => (
   <div>
-    <h1>Hello, World!</h1>
+    <RoutesPage />
   </div>
 );
 
