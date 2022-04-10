@@ -1,21 +1,34 @@
-import React from 'react';
+import React from "react";
 
-import './styles.scss';
+import "./styles.scss";
 
-const CharactersItem: React.FC = () => {
+interface Props {
+  name: string;
+  species: string;
+  gender: string;
+  status: "Alive" | "unknown" | "Dead";
+  image: string;
+}
+
+const CharactersItem: React.FC<Props> = ({
+  name,
+  status,
+  image,
+  species,
+  gender,
+}) => {
   return (
     <main>
       <div className="container">
-        <div className="card">
-          {/* <div className="mask"></div> */}
+        <div className="card" style={{ backgroundImage: `url(${image})` }}>
           <div className="description">
             <header>
               <div></div>
-              <strong>Human</strong>
+              <strong>{species}</strong>
             </header>
             <section>
-              <h1>Rick Sanchez</h1>
-              <span>Male</span>
+              <h1>{name}</h1>
+              <span>{gender}</span>
             </section>
             <footer>
               <h2>First 5 appearances:</h2>
