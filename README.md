@@ -1,54 +1,51 @@
-## Instruções
+## 💻 Projeto
 
-1. Faça um fork do repositório na sua conta do GitHub
-2. Crie uma branch, preferencialmente utilizando as práticas do conventional commits
-3. Depois de concluir o desafio, abra um pull-request contra a main (do seu fork) com a descrição do que foi feito, como foi feito e como testar a nova funcionalidade
-4. Envie um email para [front-end@letrus.com.br](mailto:front-end@letrus.com.br?subject=Desafio%20Letrus) com objeto "Desafio Letrus" e no corpo do e-mail o link para acessarmos o pull-request no seu fork
-5. Ao receber o e-mail, faremos a avaliação da solução e entraremos em contato
+Esse projeto foi desenvolvido para demostrar as minhas habilidades técnicas. Trata-se de um projeto frontend, o projeto consiste na parte frontend(React) em listar os dados dos personagens vindo de uma api Restfull em uma nova rota chamada "personagens".
 
-## Requisitos
+## 🎨 Layout
 
-- React
-- TypeScript
-- Componentes funcionais
-- React Router
-- Hooks
-- Redux Toolkit
-- Consumo da seguinte API RESTful: https://rickandmortyapi.com/api/character
-- Listagem dos dados em uma nova rota
+<p align="center">
+    ![characters](https://user-images.githubusercontent.com/53385345/162801109-14b87a0a-0a25-4e19-9e7c-81e94be480a1.png)
+</p>
 
-## Diferenciais
+## Endpoint:
 
-- Testes (unitários, de integração, E2E)
-- Jest, React Testing Library
-- TDD
+ EndPoint usando no projeto: https://rickandmortyapi.com/api/character
 
-## O que é permitido
+## Protótipo
 
-- SCSS
-- Linters
-- Formatadores
-- Bibliotecas de memoize, como o Reselect
-- Bibliotecas HTTP, como o Axios
-- Utilização de IDEs ou editores de texto de sua preferência, como o VS Code
+Você pode utilizar a seguinte URL para visualizar todas as telas: [Visualizar](https://www.figma.com/file/OlZtpmS4v7IgTTq93XJpyX/Untitled?node-id=6%3A154)
 
-## O que não é permitido
+## 🥉: Tecnologias
 
-- Frameworks adicionais, como Bootstrap, Chakra UI, Materialize, etc
-- Bibliotecas que em geral abstraiam os principais conceitos utilizados
-- Reutilização de códigos de outras pessoas
+Esse projeto foi desenvolvido com as seguintes tecnologias:
 
-## Como rodar o projeto
+- [Typescript](https://www.typescriptlang.org/)
+- [React](https://reactjs.org/)
+- [React Router](https://reactrouter.com/)
+- [React Toolkit](https://redux-toolkit.js.org/)
+- [Saas](https://sass-lang.com/)
+- [Axios](https://axios-http.com/ptbr/docs/intro)
 
-1. Ter o Node.js instalado (versão 14.1.0+)
-2. Criar o fork do projeto
-3. Rodar `npm install`
-4. Rodar `npm start`
+## :notebook: Executando
 
-## A feature a ser desenvolvida
+O **README** mostra como executar as aplicação.
 
-- Implemente um novo reducer na store do Redux, o qual será responsável por armazenar o estado da resposta do **GET** no endpoint `/character` da API
+```bash
+# Clone este repositório
+$ git clone https://github.com/Mraimundo/letrus-hiring-test.git
 
-- Crie um seletor que retorne o estado armazenado
+# Acesse a pasta do projeto no seu terminal/cmd
+$ cd letrus-hiring-test
 
-- Consuma esse estado dentro de um página cuja rota tenha o nome de `/personagens`, e, para cada personagem, exiba seu nome, gênero, status, foto, e suas cinco primeiras aparições, de acordo com o protótipo do [Figma](https://www.figma.com/file/OlZtpmS4v7IgTTq93XJpyX/Untitled?node-id=6%3A154)
+# Instale as dependências
+$ npm install
+
+
+# Execute a aplicação
+$ npm start
+$ No navegador acesse a rota **/personagens** que lista as personagens.
+
+```
+
+Feito com horas em frente ao :computer: por [Mouzinho Raimundo](https://www.linkedin.com/in/mouzinho-raimundo/)
