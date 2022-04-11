@@ -1,7 +1,10 @@
 import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
+import rickAndMortyReducer from "../store/reducers/reducer";
 
 export const store = configureStore({
-  reducer: {},
+  reducer: {
+    rickAndMorty: rickAndMortyReducer
+  },
 });
 
 export type AppDispatch = typeof store.dispatch;
