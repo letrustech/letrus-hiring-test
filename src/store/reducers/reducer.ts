@@ -1,5 +1,5 @@
-import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
-import { api } from '../../services/api';
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { api } from "../../services/api";
 
 const initialState = {
   characters: [],
@@ -7,15 +7,15 @@ const initialState = {
 };
 
 export const getCharacters = createAsyncThunk(
-  'characters/getCharacters',
+  "characters/getCharacters",
   async () => {
-    const response = await api.get('character');
+    const response = await api.get("character");
     return response.data;
   }
 );
 
 export const characterSlice = createSlice({
-  name: 'characters',
+  name: "characters",
   initialState,
   reducers: {},
 

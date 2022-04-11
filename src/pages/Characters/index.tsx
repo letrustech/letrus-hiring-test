@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import React, { useCallback, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { getCharacters } from "../../store/reducers/reducer";
@@ -8,12 +7,6 @@ import { RootState } from "../../utils/store";
 import CharactersItem from "../../components/CharactersItem";
 
 import "./styles.scss";
-
-interface Episodes {
-  id: string;
-  name: string;
-  air_date: string;
-}
 
 interface CharactersProps {
   id: string;
@@ -32,8 +25,6 @@ interface CharactersData {
 }
 
 const Characters: React.FC = () => {
-  const [episodes, setEpisodes] = useState<any[]>([]);
-
   const dispatch = useDispatch();
   const response = useSelector<RootState, CharactersData>(
     // @ts-ignore
@@ -44,17 +35,9 @@ const Characters: React.FC = () => {
     dispatch(getCharacters());
   }, []);
 
-  function getEpisodes(episodes: any) {
-    const showEpisodes = episodes.slice(0, 5);
-
-    axios
-      .all(showEpisodes.map((endpoint: any) => axios.get(endpoint)))
-      .then((data) => setEpisodes(data));
-  }
-
-  return (
-    <div className="item">
-      {response?.characters?.results?.map((character) => (
+  const render = useCallback(() => {
+    return response?.characters?.results?.map((character) => {
+      return (
         <CharactersItem
           key={character.id}
           name={character.name}
@@ -62,12 +45,13 @@ const Characters: React.FC = () => {
           gender={character.gender}
           status={character.status}
           image={character.image}
-          episode={getEpisodes(character.episode)}
-          episodes={episodes}
+          episodes={character.episode}
         />
-      ))}
-    </div>
-  );
+      );
+    });
+  }, [response]);
+
+  return <div className="item">{render()}</div>;
 };
 
 export default Characters;

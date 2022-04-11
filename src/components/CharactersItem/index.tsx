@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { api } from "../../services/api";
+import axios from "axios";
 
 import "./styles.scss";
 
@@ -15,8 +15,7 @@ interface CharactersProps {
   gender: string;
   status: "Alive" | "unknown" | "Dead";
   image: string;
-  episode: any;
-  episodes: any;
+  episodes: string[];
 }
 
 const CharactersItem: React.FC<CharactersProps> = ({
@@ -25,10 +24,27 @@ const CharactersItem: React.FC<CharactersProps> = ({
   image,
   species,
   gender,
-  episode,
   episodes,
 }) => {
-  console.log(episodes);
+  const [episodeList, setEpisodeList] = useState<any[]>([]);
+
+  useEffect(() => {
+    async function getEpisodes(episodes: string[]) {
+      const filteredList = episodes.slice(0, 5);
+      const request = filteredList.map((url: string) => {
+        return axios.get(url);
+      });
+      let answer = await axios.all([
+        request[0],
+        request[1],
+        request[2],
+        request[3],
+        request[4],
+      ]);
+      setEpisodeList(answer);
+    }
+    getEpisodes(episodes);
+  }, []);
 
   return (
     <main>
@@ -36,7 +52,13 @@ const CharactersItem: React.FC<CharactersProps> = ({
         <div className="card" style={{ backgroundImage: `url(${image})` }}>
           <div className="description">
             <header>
-              <div></div>
+              <div
+                style={
+                  status !== "Alive"
+                    ? { background: "var(--status-red)" }
+                    : { background: "var(--status-green)" }
+                }
+              ></div>
               <strong>{species}</strong>
             </header>
             <section>
@@ -45,17 +67,17 @@ const CharactersItem: React.FC<CharactersProps> = ({
             </section>
             <footer>
               <h2>First 5 appearances:</h2>
-
               <ul>
-                {/* <li>teste1</li>
-                <li>teste2</li>
-                <li>teste3</li> */}
-                {/* {episodes.length &&
-                  episodes.map((episode) => (
-                    <li key={episode.id}>
-                      Episode 0{episode.id}: {episode.name} ({episode.air_date})
-                    </li>
-                  ))} */}
+                {episodeList.map((item) => {
+                  if (item) {
+                    return (
+                      <li key={item.data.id}>
+                        Episode 0{item.data.id}: {item.data.name} (
+                        {item.data.air_date})
+                      </li>
+                    );
+                  }
+                })}
               </ul>
             </footer>
           </div>
