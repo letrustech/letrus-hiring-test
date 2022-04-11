@@ -1,22 +1,35 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { api } from "../../services/api";
 
 import "./styles.scss";
 
-interface Props {
+interface Episodes {
+  id: string;
+  name: string;
+  air_date: string;
+}
+
+interface CharactersProps {
   name: string;
   species: string;
   gender: string;
   status: "Alive" | "unknown" | "Dead";
   image: string;
+  episode: any;
+  episodes: any;
 }
 
-const CharactersItem: React.FC<Props> = ({
+const CharactersItem: React.FC<CharactersProps> = ({
   name,
   status,
   image,
   species,
   gender,
+  episode,
+  episodes,
 }) => {
+  console.log(episodes);
+
   return (
     <main>
       <div className="container">
@@ -32,12 +45,17 @@ const CharactersItem: React.FC<Props> = ({
             </section>
             <footer>
               <h2>First 5 appearances:</h2>
+
               <ul>
-                <li>Episode 01: Pilot (December 2, 2013)</li>
-                <li>Episode 01: Pilot (December 2, 2013)</li>
-                <li>Episode 01: Pilot (December 2, 2013)</li>
-                <li>Episode 01: Pilot (December 2, 2013)</li>
-                <li>Episode 01: Pilot (December 2, 2013)</li>
+                {/* <li>teste1</li>
+                <li>teste2</li>
+                <li>teste3</li> */}
+                {/* {episodes.length &&
+                  episodes.map((episode) => (
+                    <li key={episode.id}>
+                      Episode 0{episode.id}: {episode.name} ({episode.air_date})
+                    </li>
+                  ))} */}
               </ul>
             </footer>
           </div>
