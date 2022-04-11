@@ -44,7 +44,7 @@ $ npm install
 
 # Execute a aplicação
 $ npm start
-$ No navegador acesse a rota **/personagens** que lista as personagens.
+$ No navegador acesse a rota **/personagens** que lista os personagens.
 
 ```
 
