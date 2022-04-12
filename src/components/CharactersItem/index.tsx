@@ -3,12 +3,6 @@ import axios from 'axios';
 
 import './styles.scss';
 
-interface Episodes {
-  id: string;
-  name: string;
-  air_date: string;
-}
-
 interface CharactersProps {
   name: string;
   species: string;
@@ -34,7 +28,7 @@ const CharactersItem: React.FC<CharactersProps> = ({
       const request = filteredList.map((url: string) => {
         return axios.get(url);
       });
-      let answer = await axios.all([
+      const answer = await axios.all([
         request[0],
         request[1],
         request[2],
@@ -58,7 +52,7 @@ const CharactersItem: React.FC<CharactersProps> = ({
                     ? { background: 'var(--status-red)' }
                     : { background: 'var(--status-green)' }
                 }
-              ></div>
+              />
               <strong>{species}</strong>
             </header>
             <section>

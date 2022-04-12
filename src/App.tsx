@@ -3,10 +3,6 @@ import RoutesPage from './routes';
 
 import './styles/global.scss';
 
-const App: React.FC = () => (
-  <div>
-    <RoutesPage />
-  </div>
-);
+const App: React.FC = () => <RoutesPage />;
 
 export default App;
