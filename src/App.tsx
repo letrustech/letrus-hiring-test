@@ -1,9 +1,8 @@
-const App: React.FC = () => {
-  return (
-    <div>
-      <h1>Hello, World!</h1>
-    </div>
-  );
-};
+import React from 'react';
+import RoutesPage from './routes';
+
+import './styles/global.scss';
+
+const App: React.FC = () => <RoutesPage />;
 
 export default App;
