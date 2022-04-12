@@ -1,19 +1,19 @@
-import React, { useCallback, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useCallback, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
-import { getCharacters } from "../../store/reducers/reducer";
-import { RootState } from "../../utils/store";
+import { getCharacters } from '../../store/reducers/reducer';
+import { RootState } from '../../utils/store';
 
-import CharactersItem from "../../components/CharactersItem";
+import CharactersItem from '../../components/CharactersItem';
 
-import "./styles.scss";
+import './styles.scss';
 
 interface CharactersProps {
   id: string;
   name: string;
   species: string;
   gender: string;
-  status: "Alive" | "unknown" | "Dead";
+  status: 'Alive' | 'unknown' | 'Dead';
   image: string;
   episode: string[];
 }

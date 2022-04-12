@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
-import "./styles.scss";
+import './styles.scss';
 
 interface Episodes {
   id: string;
@@ -13,7 +13,7 @@ interface CharactersProps {
   name: string;
   species: string;
   gender: string;
-  status: "Alive" | "unknown" | "Dead";
+  status: 'Alive' | 'unknown' | 'Dead';
   image: string;
   episodes: string[];
 }
@@ -54,9 +54,9 @@ const CharactersItem: React.FC<CharactersProps> = ({
             <header>
               <div
                 style={
-                  status !== "Alive"
-                    ? { background: "var(--status-red)" }
-                    : { background: "var(--status-green)" }
+                  status !== 'Alive'
+                    ? { background: 'var(--status-red)' }
+                    : { background: 'var(--status-green)' }
                 }
               ></div>
               <strong>{species}</strong>
