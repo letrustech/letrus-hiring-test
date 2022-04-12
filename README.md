@@ -4,9 +4,9 @@ Esse projeto foi desenvolvido para demostrar as minhas habilidades técnicas. Tr
 
 ## 🎨 Layout
 
-<p align="center">
-    ![characters](https://user-images.githubusercontent.com/53385345/162801109-14b87a0a-0a25-4e19-9e7c-81e94be480a1.png)
-</p>
+
+ ![characters](https://user-images.githubusercontent.com/53385345/162801109-14b87a0a-0a25-4e19-9e7c-81e94be480a1.png)
+
 
 ## Endpoint:
 
